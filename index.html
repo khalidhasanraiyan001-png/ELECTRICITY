@@ -1,0 +1,96 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hybrid Energy System</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #38bdf8;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 15px;
+        width: 250px;
+        margin: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .value {
+        font-size: 30px;
+        margin-top: 10px;
+        color: #22c55e;
+    }
+
+    .total {
+        margin-top: 40px;
+        font-size: 35px;
+        color: #facc15;
+    }
+</style>
+</head>
+<body>
+
+<h1>⚡ Hybrid Energy System ⚡</h1>
+<p>Dam + Solar Panel + Windmill</p>
+
+<div class="container">
+    <div class="card">
+        <h2>🌊 Dam Energy</h2>
+        <div class="value" id="dam">0 kW</div>
+    </div>
+
+    <div class="card">
+        <h2>☀ Solar Energy</h2>
+        <div class="value" id="solar">0 kW</div>
+    </div>
+
+    <div class="card">
+        <h2>🌬 Wind Energy</h2>
+        <div class="value" id="wind">0 kW</div>
+    </div>
+</div>
+
+<div class="total">
+    Total Power: <span id="total">0 kW</span>
+</div>
+
+<script>
+function updateEnergy() {
+    let dam = Math.floor(Math.random() * 50 + 100);   // 100-150 kW
+    let solar = Math.floor(Math.random() * 40 + 60);  // 60-100 kW
+    let wind = Math.floor(Math.random() * 30 + 50);   // 50-80 kW
+
+    let total = dam + solar + wind;
+
+    document.getElementById("dam").innerText = dam + " kW";
+    document.getElementById("solar").innerText = solar + " kW";
+    document.getElementById("wind").innerText = wind + " kW";
+    document.getElementById("total").innerText = total + " kW";
+}
+
+// update every 2 seconds
+setInterval(updateEnergy, 2000);
+
+// first load
+updateEnergy();
+</script>
+
+</body>
+</html>
